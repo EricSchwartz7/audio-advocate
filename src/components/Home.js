@@ -5,6 +5,10 @@ import { Link } from 'react-router-dom'
 
 class Home extends Component {
 
+  componentDidMount() {
+    this.props.fetchUsername()
+  }
+
   render() {
     return (
       <div className="Home">

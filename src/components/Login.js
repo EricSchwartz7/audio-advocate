@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 import '../css/login.css';
 
 class Login extends Component {
+
+  handleClick() {
+    // this.props.history.push("/home")
+  }
+
   render() {
     return (
       <div className="myForm">
@@ -16,17 +23,29 @@ class Login extends Component {
             <input ref="logInEmail" />
             <label>Password: </label>
             <input type="password" ref="logInPassword" />
-            <Link to="#" className="formButton" type="submit">Log In</Link>
+            <button className="formButton" type="submit">Log In</button>
           </form>
           <div id="newDiv">
             <p id="new">New to Audio Advocate?</p>
           </div>
-          <Link to="/signup" className="formButton createButton">Create Account</Link>
+          <button className="formButton createButton">Create Account</button>
         </div>
+
+        <h1 onClick={this.handleClick.bind(this)}>Go to Home Page</h1>
 
       </div>
     );
   }
 }
 
-export default Login;
+const mapStateToProps = (state) => {
+  return {
+    user: state.user
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (Login)
