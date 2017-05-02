@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 import '../css/login.css';
 import { createUser } from '../actions'
 
+// email regex validation ->  /\A.*?@.*?\z/
+
 class SignUp extends Component {
 
   handleSubmit(event) {
@@ -22,7 +24,7 @@ class SignUp extends Component {
 
   componentDidUpdate() {
     if (Object.keys(this.props.user).length !== 0) {
-      this.props.history.push('/home')
+      this.props.history.push('/')
     }
   }
 
@@ -58,8 +60,7 @@ class SignUp extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.user,
-    router: state.router
+    user: state.user
   }
 }
 
