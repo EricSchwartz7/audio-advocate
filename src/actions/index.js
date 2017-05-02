@@ -38,3 +38,12 @@ export const logInUser = (user) => {  // call on Rails API to match and decode t
     payload: response
   }
 }
+
+export const fetchUsername = () => {
+  axios.defaults.headers.common['AUTHORIZATION'] = sessionStorage.getItem('jwt')
+  const response = axios.get('/active')
+  return {
+    type: 'FETCH_USERNAME',
+    payload: response
+  }
+}

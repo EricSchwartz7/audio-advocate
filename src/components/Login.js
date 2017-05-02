@@ -1,13 +1,25 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import '../css/login.css';
+import { logInUser } from '../actions'
 
 class Login extends Component {
 
-  handleClick() {
-    // this.props.history.push("/home")
+  handleSubmit(event) {
+    event.preventDefault()
+    const user = {email: this.refs.logInEmail.value, password: this.refs.logInPassword.value}
+    this.props.logInUser(user)
+  }
+
+  handleCreateClick() {
+    this.props.history.push('/signup')
+  }
+
+  componentDidUpdate() {
+    if (Object.keys(this.props.user).length !== 0) {
+      this.props.history.push('/')
+    }
   }
 
   render() {
@@ -23,15 +35,13 @@ class Login extends Component {
             <input ref="logInEmail" />
             <label>Password: </label>
             <input type="password" ref="logInPassword" />
-            <button className="formButton" type="submit">Log In</button>
+            <button className="formButton" type="submit" onClick={this.handleSubmit.bind(this)}>Log In</button>
           </form>
           <div id="newDiv">
             <p id="new">New to Audio Advocate?</p>
           </div>
-          <button className="formButton createButton">Create Account</button>
+          <button className="formButton createButton" onClick={this.handleCreateClick.bind(this)}>Create Account</button>
         </div>
-
-        <h1 onClick={this.handleClick.bind(this)}>Go to Home Page</h1>
 
       </div>
     );
@@ -45,7 +55,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({}, dispatch)
+  return bindActionCreators({logInUser}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps) (Login)

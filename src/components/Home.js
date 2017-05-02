@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import logo from '../logo.svg';
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import logo from '../logo.svg'
 import '../css/App.css';
 import { Link } from 'react-router-dom'
+import { fetchUsername } from '../actions'
 
 class Home extends Component {
 
@@ -12,12 +15,44 @@ class Home extends Component {
   render() {
     return (
       <div className="Home">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to Audio Advocate</h2>
-        </div>
+        <nav className="navbar navbar-default">
+          <div className="container-fluid">
+            <div className="navbar-header">
+              <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span className="sr-only">Toggle navigation</span>
+                <span className="icon-bar"></span>
+                <span className="icon-bar"></span>
+                <span className="icon-bar"></span>
+              </button>
+              <a className="navbar-brand" href="#">AA</a>
+            </div>
+
+            <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul className="nav navbar-nav">
+                <li className="active"><a href="#">Link <span className="sr-only">(current)</span></a></li>
+                <li><a href="#">Link</a></li>
+                <li className="dropdown">
+                  <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret"></span></a>
+                  <ul className="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" className="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                    <li role="separator" className="divider"></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <ul className="nav navbar-nav navbar-right">
+                <li><a href="#">Link</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        {/* <nav classNameName="navbar navbar-default"><h2>Welcome to Audio Advocate, {this.props.username}</h2></nav> */}
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          Hello, {this.props.username}
         </p>
         <Link to="/login">Go to login page</Link>
       </div>
@@ -25,4 +60,14 @@ class Home extends Component {
   }
 }
 
-export default Home
+const mapStateToProps = (state) => {
+  return {
+    username: state.user.username
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({fetchUsername}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (Home)

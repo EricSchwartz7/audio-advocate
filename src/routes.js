@@ -12,7 +12,7 @@ import SignUp from './components/SignUp'
 // )
 export default (
   <App>
-    <Route path="/home" component={Home} />
+    <Route exact path="/" component={Home} />
     <Route path="/login" component={Login} />
     <Route path="/signup" component={SignUp} />
   </App>
