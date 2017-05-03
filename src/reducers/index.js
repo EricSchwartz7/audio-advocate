@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux'
 
-import helloWorldReducer from './helloWorldReducer'
 import userReducer from './userReducer'
-// import routerReducer from 'react-router-redux'
+import productReducer from './productReducer'
+import ratingReducer from './ratingReducer'
 
 const rootReducer = combineReducers({
-  helloWorld: helloWorldReducer,
-  user: userReducer
-  // router: routerReducer
+  user: userReducer,
+  products: productReducer,
+  ratings: ratingReducer
 })
 
 export default rootReducer

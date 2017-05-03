@@ -5,6 +5,7 @@ import Home from './components/Home'
 import Login from './components/Login'
 import SignUp from './components/SignUp'
 import Nav from './components/Nav'
+import ProductList from './components/ProductList'
 
 // export default (
 //   <Route path="/" component={App}>
@@ -17,5 +18,6 @@ export default (
     <Route exact path="/" component={Home} />
     <Route path="/login" component={Login} />
     <Route path="/signup" component={SignUp} />
+    <Route path="/products" component={ProductList} />
   </App>
 )

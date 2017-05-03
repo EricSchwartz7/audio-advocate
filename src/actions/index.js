@@ -5,12 +5,6 @@ import axios from 'axios'
 axios.defaults.baseURL = "http://localhost:3000/api/v1"
 axios.defaults.headers.common['AUTHORIZATION'] = sessionStorage.getItem('jwt')
 
-export const helloWorld = () => {
-  return {
-    type: 'HELLO_WORLD',
-  }
-}
-
 export const createUser = (user) => {  // call on Rails API to hit the Create action
   const response = axios.post('/signup', user)  // user is object with form data
     .then( (userData) => {  // userData includes jwt token and other Rails info
@@ -45,6 +39,21 @@ export const fetchUsername = () => {
   const response = axios.get('/active');
   return {
     type: 'LOG_IN',
+    payload: response
+  }
+}
+
+export const fetchData = () => {
+  const response = axios.get('/products').then( products => products.data )
+  return {
+    type: 'FETCH_DATA',
+    payload: response
+  }
+}
+export const fetchRatings = () => {
+  const response = axios.get('/ratings')
+  return {
+    type: 'FETCH_RATINGS',
     payload: response
   }
 }

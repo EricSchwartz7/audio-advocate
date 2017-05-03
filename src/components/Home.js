@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import logo from '../logo.svg'
 import '../css/App.css';
 import { Link } from 'react-router-dom'
 import { fetchUsername } from '../actions'
