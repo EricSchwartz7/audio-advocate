@@ -32,14 +32,16 @@ class ProductList extends Component {
 
     var products = [];
 
-    if (this.props.products.length > 0){
-      this.props.products.map((product) =>{
+    if (this.props.products.length > 0 && this.props.ratings.length > 0){
+      this.props.products.map((product, i) =>{
         products.push({
           brand: product.brand,
-          name: product.name
+          name: product.name,
+          rating: this.props.ratings[i]
         })
       })
     }
+
     console.log(products)
 
     return(
@@ -57,7 +59,7 @@ class ProductList extends Component {
 
           <Table.Body>
             {products.map( (product, i) =>
-              <ProductRow key={i} brand={product.brand} name={product.name} />
+              <ProductRow key={i} brand={product.brand} name={product.name} rating={product.rating}/>
             )}
           </Table.Body>
         </Table>
@@ -67,7 +69,8 @@ class ProductList extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    products: state.products
+    products: state.products,
+    ratings: state.ratings
   }
 }
 

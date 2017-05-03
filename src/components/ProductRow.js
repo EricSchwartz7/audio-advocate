@@ -15,8 +15,8 @@ class ProductRow extends Component {
         <Table.HeaderCell>{this.props.name}</Table.HeaderCell>
         <Table.Cell>2</Table.Cell>
         <Table.Cell>Thunderbolt</Table.Cell>
-        <Table.Cell textAlign='right'>
-          <Rating icon='star' rating={4} maxRating={5} />
+        <Table.Cell textAlign='right'><h4>{this.props.rating}</h4>
+          {/* <Rating icon='star' rating={this.props.rating} maxRating={5} /> */}
         </Table.Cell>
         <Table.Cell>11</Table.Cell>
       </Table.Row>

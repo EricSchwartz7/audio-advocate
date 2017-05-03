@@ -51,7 +51,7 @@ export const fetchData = () => {
   }
 }
 export const fetchRatings = () => {
-  const response = axios.get('/ratings')
+  const response = axios.get('/ratings').then( ratings => ratings.data )
   return {
     type: 'FETCH_RATINGS',
     payload: response
