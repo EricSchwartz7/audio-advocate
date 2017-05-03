@@ -4,6 +4,7 @@ import App from './components/App'
 import Home from './components/Home'
 import Login from './components/Login'
 import SignUp from './components/SignUp'
+import Nav from './components/Nav'
 
 // export default (
 //   <Route path="/" component={App}>
@@ -12,6 +13,7 @@ import SignUp from './components/SignUp'
 // )
 export default (
   <App>
+    <Route path="/" component={Nav} />
     <Route exact path="/" component={Home} />
     <Route path="/login" component={Login} />
     <Route path="/signup" component={SignUp} />

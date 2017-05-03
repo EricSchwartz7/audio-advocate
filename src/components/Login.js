@@ -26,7 +26,7 @@ class Login extends Component {
     return (
       <div className="myForm">
 
-        <h1 id="title">Audio Advocate</h1>
+        <h1 id="loginTitle">Audio Advocate</h1>
 
         <div id="logIn">
           <h2 className="formTitle">Log In</h2>
