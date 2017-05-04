@@ -1,0 +1,14 @@
+#sorter {
+  margin-top: 0.6em;
+  margin-bottom: 0.4em;
+  float: right;
+}
+
+.sorter-text {
+  margin-right: 0.6em;
+}
+
+.sorter-link {
+  margin-right: 0.6em;
+  cursor: pointer;
+}

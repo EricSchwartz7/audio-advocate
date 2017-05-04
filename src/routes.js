@@ -6,18 +6,15 @@ import Login from './components/Login'
 import SignUp from './components/SignUp'
 import Nav from './components/Nav'
 import ProductList from './components/ProductList'
+import Product from './components/Product'
 
-// export default (
-//   <Route path="/" component={App}>
-//     <Route path="/home" component={Home} />
-//   </Route>
-// )
 export default (
   <App>
     <Route path="/" component={Nav} />
     <Route exact path="/" component={Home} />
     <Route path="/login" component={Login} />
     <Route path="/signup" component={SignUp} />
-    <Route path="/products" component={ProductList} />
+    <Route exact path="/products" component={ProductList} />
+    <Route path="/product/:id" component={Product} />
   </App>
 )

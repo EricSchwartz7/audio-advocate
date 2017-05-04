@@ -1,0 +1,17 @@
+.Review {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.review-left {
+  width: 10%;
+  position: relative;
+  float: left;
+  margin-left: 10px;
+}
+
+.review-right {
+  width: 90%;
+  position: relative;
+  float: right;
+}

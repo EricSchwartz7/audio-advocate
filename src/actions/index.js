@@ -57,3 +57,37 @@ export const fetchRatings = () => {
     payload: response
   }
 }
+export const fetchReviews = (productID) => {
+  const response = axios.get('/reviews/' + productID).then( reviews => reviews.data )
+  return {
+    type: 'FETCH_REVIEWS',
+    payload: response
+  }
+}
+export const fetchProduct = (productID) => {
+  const response = axios.get('/product/' + productID).then( product => product.data )
+  return {
+    type: 'FETCH_PRODUCT',
+    payload: response
+  }
+}
+export const sortPrice = () => {
+  const response = axios.get('/products/price').then( products => products.data )
+  return {
+    type: 'SORT_PRICE',
+    payload: response
+  }
+}
+export const sortPriceHigh = () => {
+  const response = axios.get('/products/price_high').then( products => products.data )
+  return {
+    type: 'SORT_PRICE_HIGH',
+    payload: response
+  }
+}
+export const sortRating = (sortedProducts) => {
+  return {
+    type: 'SORT_RATING',
+    payload: sortedProducts
+  }
+}

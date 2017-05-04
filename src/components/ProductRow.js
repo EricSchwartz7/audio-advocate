@@ -1,28 +1,36 @@
-import React, { Component } from 'react';
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
-import { Header, Table, Rating } from 'semantic-ui-react'
-import { fetchData } from '../actions'
+import React from 'react';
+import { Header, Table, Rating, Image } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
-class ProductRow extends Component {
+export default function ProductRow(props) {
 
-  render() {
+  var id = props.id.toString();
 
-    return(
+  var price = props.price;
+  var formattedPrice = '$' + (price / 100).toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
 
-      <Table.Row>
-        <Table.Cell>{this.props.brand}</Table.Cell>
-        <Table.HeaderCell>{this.props.name}</Table.HeaderCell>
-        <Table.Cell>2</Table.Cell>
-        <Table.Cell>Thunderbolt</Table.Cell>
-        <Table.Cell textAlign='right'><h4>{this.props.rating}</h4>
-          {/* <Rating icon='star' rating={this.props.rating} maxRating={5} /> */}
-        </Table.Cell>
-        <Table.Cell>11</Table.Cell>
-      </Table.Row>
+  return(
 
-    )
-  }
+    <Table.Row>
+      <Table.Cell>{props.brand}</Table.Cell>
+      <Table.Cell className="title-cell">
+        <Header>
+          <Link to={'/product/'+id}>
+            {props.name}
+            <Header.Subheader>
+              <Image src={props.img} size='small' className="product-img" />
+            </Header.Subheader>
+          </Link>
+        </Header>
+      </Table.Cell>
+      <Table.Cell>{formattedPrice}</Table.Cell>
+      <Table.Cell>2</Table.Cell>
+      <Table.Cell>Thunderbolt</Table.Cell>
+      <Table.Cell><h4>{props.rating}</h4>
+        {/* <Rating icon='star' rating={props.rating} maxRating={5} /> */}
+      </Table.Cell>
+      <Table.Cell>{props.numOfReviews}</Table.Cell>
+    </Table.Row>
+
+  )
 }
-
-export default ProductRow
