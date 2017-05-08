@@ -50,13 +50,6 @@ export const fetchData = () => {
     payload: response
   }
 }
-export const fetchRatings = () => {
-  const response = axios.get('/ratings').then( ratings => ratings.data )
-  return {
-    type: 'FETCH_RATINGS',
-    payload: response
-  }
-}
 export const fetchReviews = (productID) => {
   const response = axios.get('/reviews/' + productID).then( reviews => reviews.data )
   return {
@@ -85,9 +78,10 @@ export const sortPriceHigh = () => {
     payload: response
   }
 }
-export const sortRating = (sortedProducts) => {
+export const sortRating = () => {
+  const response = axios.get('/products/rating').then( products => products.data )
   return {
     type: 'SORT_RATING',
-    payload: sortedProducts
+    payload: response
   }
 }
