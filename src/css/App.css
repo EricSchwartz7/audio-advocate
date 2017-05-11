@@ -35,9 +35,9 @@ nav {
 
 #title {
   position: relative;
-  top: 50%;
-  left: 1%;
-  transform: translateY(-50%);
+  top: 17%;
+  left: 12px;
+  /*transform: translateY(-50%);*/
   float: left;
 }
 

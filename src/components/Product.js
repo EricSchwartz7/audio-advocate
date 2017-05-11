@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { fetchReviews, fetchProduct } from '../actions'
+import { Loader } from 'semantic-ui-react'
 import '../css/review.css';
 import Review from './Review';
 
@@ -13,23 +14,26 @@ class Product extends Component{
     this.props.fetchReviews(id);
   }
 
+  componentDidMount(){
+    window.scrollTo(0, 0);
+  }
+
   render(){
 
-    let reviews = []
-
     if (this.props.reviews.length > 0){
-      reviews = this.props.reviews;
+
+      return (
+        <div>
+          <h1>{this.props.products.brand}{this.props.products.name}</h1>
+          {this.props.reviews.map( (review, i) =>
+            // <Review key={i} rating={review.rating} author={review.author} subject={review.subject} content={review.content} />
+            <Review key={i} review={review} />
+          )}
+        </div>
+      )
     }
-
-
     return (
-      <div>
-        <h1>{this.props.products.name}</h1>
-        {reviews.map( (review, i) =>
-          // <Review key={i} rating={review.rating} author={review.author} subject={review.subject} content={review.content} />
-          <Review key={i} review={review} />
-        )}
-      </div>
+      <Loader active />
     )
   }
 }

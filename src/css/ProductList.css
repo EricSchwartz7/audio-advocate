@@ -1,7 +1,12 @@
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 #sorter {
   margin-top: 0.6em;
   margin-bottom: 0.4em;
-  float: right;
+  margin-left: 12px;
 }
 
 .sorter-text {
@@ -11,4 +16,33 @@
 .sorter-link {
   margin-right: 0.6em;
   cursor: pointer;
+}
+
+.cards {
+  margin-left: 12px;
+}
+
+.rating {
+  color: #006e1b;
+  font-size: 1.7em;
+}
+
+.review-num {
+  font-size: 1.2em;
+}
+
+.product-image {
+  margin: auto;
+}
+
+.ui.card {
+  width: 230px!important;
+}
+
+.header {
+  font-size: 1.1em!important;
+}
+
+.meta {
+  font-size: 0.95em!important;
 }

@@ -11,10 +11,10 @@ import Product from './components/Product'
 export default (
   <App>
     <Route path="/" component={Nav} />
-    <Route exact path="/" component={Home} />
+    <Route exact path="/" component={ProductList} />
     <Route path="/login" component={Login} />
     <Route path="/signup" component={SignUp} />
-    <Route exact path="/products" component={ProductList} />
+    {/* <Route exact path="/products" component={ProductList} /> */}
     <Route path="/product/:id" component={Product} />
   </App>
 )

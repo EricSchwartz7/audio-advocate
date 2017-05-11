@@ -15,3 +15,8 @@
   position: relative;
   float: right;
 }
+
+.author {
+  margin-top: 4px;
+  margin-bottom: 2px;
+}

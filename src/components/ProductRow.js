@@ -24,8 +24,8 @@ export default function ProductRow(props) {
         </Header>
       </Table.Cell>
       <Table.Cell>{formattedPrice}</Table.Cell>
-      <Table.Cell>2</Table.Cell>
-      <Table.Cell>Thunderbolt</Table.Cell>
+      <Table.Cell>{props.preamps}</Table.Cell>
+      <Table.Cell>{props.connection}</Table.Cell>
       <Table.Cell><h4>{props.rating}</h4>
         {/* <Rating icon='star' rating={props.rating} maxRating={5} /> */}
       </Table.Cell>
