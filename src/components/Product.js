@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { fetchReviews, fetchProduct } from '../actions'
+import { fetchReviews, fetchProduct, fetchAmazon } from '../actions'
 import { Loader } from 'semantic-ui-react'
 import '../css/review.css';
 import Review from './Review';
@@ -12,6 +12,7 @@ class Product extends Component{
     const id = this.props.match.params.id;
     this.props.fetchProduct(id);
     this.props.fetchReviews(id);
+    this.props.fetchAmazon(id);
   }
 
   componentDidMount(){
@@ -24,7 +25,9 @@ class Product extends Component{
 
       return (
         <div>
-          <h1>{this.props.products.brand}{this.props.products.name}</h1>
+          <h1>{this.props.products.brand} {this.props.products.name}</h1>
+          <h5>{this.props.amazon[0] || "Searching Amazon..."}</h5>
+          {this.props.amazon[1] ? <iframe src={this.props.amazon[1]} /> : ""}
           {this.props.reviews.map( (review, i) =>
             // <Review key={i} rating={review.rating} author={review.author} subject={review.subject} content={review.content} />
             <Review key={i} review={review} />
@@ -42,12 +45,13 @@ class Product extends Component{
 const mapStateToProps = (state) => {
   return {
     products: state.products,
-    reviews: state.reviews
+    reviews: state.reviews,
+    amazon: state.amazon
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({fetchReviews, fetchProduct}, dispatch)
+  return bindActionCreators({fetchReviews, fetchProduct, fetchAmazon}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps) (Product)

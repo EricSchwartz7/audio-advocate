@@ -64,6 +64,13 @@ export const fetchProduct = (productID) => {
     payload: response
   }
 }
+export const fetchAmazon = (productID) => {
+  const response = axios.get('/amazon/' + productID).then( amazon => amazon.data )
+  return {
+    type: 'FETCH_AMAZON',
+    payload: response
+  }
+}
 export const sortPrice = () => {
   const response = axios.get('/products/price').then( products => products.data )
   return {
