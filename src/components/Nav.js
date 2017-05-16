@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Button, Icon } from 'semantic-ui-react'
+import { Button, Icon } from 'semantic-ui-react';
+import ModalModalExample from './LoginModal';
 
 class Nav extends Component {
 
@@ -7,17 +8,17 @@ class Nav extends Component {
     this.props.history.push('/login')
   }
 
+  goToHome() {
+    this.props.history.push('/')
+  }
+
   render() {
     return(
       <div className="Nav">
         <nav>
-          <h1 id="title">Audio Advocate</h1>
-          <Button animated className="navButton" onClick={this.goToLogin.bind(this)}>
-            <Button.Content visible>Login</Button.Content>
-            <Button.Content hidden>
-              <Icon name='right arrow' />
-            </Button.Content>
-          </Button>
+          <h1 id="title" onClick={this.goToHome.bind(this)}>Audio Advocate</h1>
+          {/* <Button className="navButton" onClick={this.goToLogin.bind(this)}>Login</Button> */}
+          <ModalModalExample />
         </nav>
       </div>
     )

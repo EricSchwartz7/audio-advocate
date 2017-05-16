@@ -44,19 +44,6 @@ class ProductList extends Component {
   }
 
   render() {
-    //
-    // var rating, numReviews
-    //
-    // if (this.state.sorted === "rating"){
-    //   rating = "sorter-link selected";
-    // } else {
-    //   rating = "sorter-link"
-    // }
-    // if (this.state.sorted === "numReviews"){
-    //   numReviews = "sorter-link selected";
-    // } else {
-    //   numReviews = "sorter-link"
-    // }
 
     if (this.props.products.length > 0) {
       return(

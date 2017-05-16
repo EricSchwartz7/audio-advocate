@@ -39,6 +39,7 @@ nav {
   left: 12px;
   /*transform: translateY(-50%);*/
   float: left;
+  cursor: pointer;
 }
 
 .navButton {
