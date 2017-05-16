@@ -18,6 +18,15 @@
   cursor: pointer;
 }
 
+.selected {
+  font-size: 1.05em;
+  color: #006e1b;
+}
+
+a.selected:hover {
+  color: #006e1b;
+}
+
 .cards {
   margin-left: 12px;
 }

@@ -92,3 +92,10 @@ export const sortRating = () => {
     payload: response
   }
 }
+export const sortNumReviews = () => {
+  const response = axios.get('/products/num_reviews').then( products => products.data )
+  return {
+    type: 'SORT_NUM_REVIEWS',
+    payload: response
+  }
+}

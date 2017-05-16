@@ -10,6 +10,8 @@ export default (state=[], action) => {
       return action.payload
     case 'SORT_RATING':
       return action.payload
+    case 'SORT_NUM_REVIEWS':
+      return action.payload
     default:
       return state
   }
