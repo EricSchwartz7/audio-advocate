@@ -1,8 +1,7 @@
 import axios from 'axios'
-// import { push } from 'react-router-redux'
 
-
-axios.defaults.baseURL = "http://localhost:3000/api/v1"
+// axios.defaults.baseURL = "http://localhost:3000/api/v1"
+axios.defaults.baseURL = "https://audio-advocate-api.heroku.com/api/v1"
 axios.defaults.headers.common['AUTHORIZATION'] = sessionStorage.getItem('jwt')
 
 export const createUser = (user) => {  // call on Rails API to hit the Create action

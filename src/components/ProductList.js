@@ -103,7 +103,8 @@ class ProductList extends Component {
 const mapStateToProps = (state) => {
   return {
     products: state.products,
-    ratings: state.ratings
+    ratings: state.ratings,
+    loading: state.loading
   }
 }
 
