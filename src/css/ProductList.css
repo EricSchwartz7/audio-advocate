@@ -55,3 +55,7 @@ a.selected:hover {
 .meta {
   font-size: 0.95em!important;
 }
+
+.filter {
+  font-size: 1.1em;
+}

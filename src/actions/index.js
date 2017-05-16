@@ -99,3 +99,10 @@ export const sortNumReviews = () => {
     payload: response
   }
 }
+export const filterConnection = (connection) => {
+  const response = axios.get('/products/' + connection).then( products => products.data )
+  return {
+    type: 'FILTER_CONNECTION',
+    payload: response
+  }
+}

@@ -24,3 +24,11 @@
 iframe {
   width: 100%;
 }
+
+.small-loader {
+  margin-left: 50%;
+}
+
+.amazon-iframe {
+  text-align: center;
+}

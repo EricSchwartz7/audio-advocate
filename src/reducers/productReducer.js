@@ -12,6 +12,8 @@ export default (state=[], action) => {
       return action.payload
     case 'SORT_NUM_REVIEWS':
       return action.payload
+    case 'FILTER_CONNECTION':
+      return action.payload
     default:
       return state
   }
