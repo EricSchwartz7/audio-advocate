@@ -64,8 +64,6 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({createUser}, dispatch)
-}
+const mapDispatchToProps = {createUser}
 
 export default connect(mapStateToProps, mapDispatchToProps) (SignUp)

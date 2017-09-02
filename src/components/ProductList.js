@@ -108,8 +108,6 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({fetchData, sortPrice, sortPriceHigh, sortRating, sortNumReviews, filterConnection}, dispatch)
-}
+const mapDispatchToProps = {fetchData, sortPrice, sortPriceHigh, sortRating, sortNumReviews, filterConnection}
 
 export default connect(mapStateToProps, mapDispatchToProps) (ProductList)

@@ -56,8 +56,6 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({fetchReviews, fetchProduct, fetchAmazon}, dispatch)
-}
+const mapDispatchToProps = {fetchReviews, fetchProduct, fetchAmazon}
 
 export default connect(mapStateToProps, mapDispatchToProps) (Product)

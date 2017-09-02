@@ -33,8 +33,6 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({fetchUsername}, dispatch)
-}
+const mapDispatchToProps = {fetchUsername}
 
 export default connect(mapStateToProps, mapDispatchToProps) (Home)
